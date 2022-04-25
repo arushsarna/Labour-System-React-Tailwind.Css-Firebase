@@ -1,7 +1,7 @@
-import StatusCard from 'components/StatusCard';
+
 import SettingsForm from 'components/SettingsForm';
 import ProfileCard from 'components/ProfileCard';
-import { useState } from 'react';
+
 
 export default function Dashboard() {
    

@@ -1,0 +1,30 @@
+{
+  "name": "workers",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": false
+    },
+    "pay": {
+      "type": "number"
+    },
+    "available": {
+      "type": "boolean"
+    },
+    "pno": {
+      "type": "number"
+    },
+    "city": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

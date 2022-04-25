@@ -3,19 +3,24 @@ import StatusCard from 'components/StatusCard';
 import Hired from 'components/Hired';
 import { db } from '../firebase';
 import { useEffect, useState } from 'react';
-
+import Card from '@material-tailwind/react/Card';
+import CardHeader from '@material-tailwind/react/CardHeader';
+import CardBody from '@material-tailwind/react/CardBody';
 
 
 export default function Dashboard() {
 
     const [posts, setPosts] = useState([]);
 
-    useEffect(() => {
-        db.collection('data').onSnapshot(snapshot => (
-            setPosts(snapshot.docs.map(doc => doc.data()))
-        ))
-
-    }, [])
+  const getData = async () => {
+    const response = await fetch("http://localhost:5000/api/workers");
+    setPosts(await response.json());
+  };
+  useEffect(() => {
+    getData();
+  }, []);
+    console.log(posts)
+   
 
     return (
         <>
@@ -66,19 +71,72 @@ export default function Dashboard() {
                 <div className="container mx-auto max-w-full">
                     <div className="grid grid-cols-1 xl:grid-cols-1">
                         <div className="xl:col-start-1 xl:col-end-4 px-4 mb-14">
-                            {
-                                posts.map(({ id1, name1, status1, dailywage1, city1, phoneno1, status2 }) => (
+                             <Card>
+            <CardHeader color="blue" contentPosition="none">
+                <div className="w-full flex items-center justify-between">
+                    <h2 className="text-white text-2xl">Workers</h2>
+                    
+                </div>
+            </CardHeader>
+            <CardBody>
+                <div className="overflow-x-auto">
+                    <table className="items-center w-full bg-transparent border-collapse">
+                        <thead>
+                            <tr>
+                                <th className="px-2 text-teal-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
+                                    Id
+                                </th>
+                                <th className="px-2 text-teal-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
+                                   Name
+                                </th>
+                                <th className="px-2 text-teal-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
+                                  Pay
+                                </th>
+                                <th className="px-2 text-teal-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
+                                   City
+                                </th>
+                                <th className="px-2 text-teal-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
+                                    Status
+                                </th>
+                                <th className="px-2 text-teal-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
+                                   Phone Number
+                                </th>
+                            </tr>
+                        </thead>
+                                                {posts.map(({ id,name,pay,city,availability,pno }) => (
+                                            <tbody>
 
-                                    <Hired title="Hired Workers"
-
-                                        id="ID" name="Name" money="Daily Wage" city="City" status="Status" phoneno="Phone No."
-                                        id1={id1} name1={name1} money1={dailywage1} city1={city1} status1={status1} phoneno1={phoneno1}
-                                        id2="2" name2="Shamu" money2="Rs 150" city2="Sehore" status2={status2} phoneno2="895947523"
-                                        id3="3" name3="gita" money3="Rs 150" city3="Sehore" status3="Hired" phoneno3="895947523"
-                                        id4="4" name4="sita" money4="Rs 150" city4="Sehore" status4="Hired" phoneno4="895947523"
-                                    />
-                                ))
-                            }
+                                   
+                                   
+                            <tr>
+                                <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
+                                  {id}
+                                </th>
+                                <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
+                                  {name}
+                                </td>
+                                <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
+                                    Rs  {pay}
+                                </td>
+                                <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
+                                    {city}
+                                </td>
+                                <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
+                                    {availability}
+                                </td>
+                                <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
+                                    {pno}
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                                ))}
+                    </table>
+                </div>
+            </CardBody>
+        </Card>
+                           
+                           
 
                         </div>
 

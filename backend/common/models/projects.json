@@ -1,0 +1,42 @@
+{
+  "name": "projects",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": false
+    },
+    "city": {
+      "type": "string"
+    },
+    "budget": {
+      "type": "string",
+      "required": false
+    },
+    "owner-group": {
+      "type": "string",
+      "required": false,
+      "default": "hey"
+    },
+    "requiredworkers": {
+      "type": "number",
+      "required": false
+    },
+    "existingno": {
+      "type": "number",
+      "required": false
+    },
+    "verification": {
+      "type": "boolean",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
