@@ -65,8 +65,8 @@ export default function Sidebar() {
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
                                     activeClassName="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md"
                                 >
-                                    <Icon name="settings" size="2xl" />
-                                    Profile
+                                    <Icon name="list_alt" size="2xl" />
+                                   Issues
                                 </NavLink>
                             </li>
                             {/* <li className="rounded-lg mb-2 text-gray-700">
@@ -79,7 +79,7 @@ export default function Sidebar() {
                                     Contact Us!
                                 </NavLink>
                             </li> */}
-                            <li className="px-4 rounded-lg mb-2 text-gray-700">
+                            {/* <li className="px-4 rounded-lg mb-2 text-gray-700">
 
                                 <a
                                     href="/login"
@@ -90,7 +90,7 @@ export default function Sidebar() {
                                     <Icon name="fingerprint" size="2xl" />
                                     Login
                                 </a>
-                            </li>
+                            </li> */}
                             <li className=" rounded-lg mb-2 text-gray-700">
                                 <NavLink
                                     to="/contact"

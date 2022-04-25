@@ -184,7 +184,7 @@ export default function SettingsForm() {
                     </div>
 
                     <h6 className="text-purple-500  text-sm my-6 font-light uppercase">
-                        About Me
+                        Explain your Issue.
                     </h6>
                     <div className="flex flex-wrap mt-10 font-light">
 

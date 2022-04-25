@@ -73,7 +73,7 @@ export default function AdminNavbar({ showSidebar, setShowSidebar }) {
 
                                 </DropdownItem>
                                 <DropdownItem color="lightBlue">
-                                    <Link to="/settings">Profile</Link>
+                                    <Link to="/settings">Issue Submission</Link>
                                 </DropdownItem>
                                 <DropdownItem color="lightBlue">
                                     <Link to="/">Contact Us!</Link>
